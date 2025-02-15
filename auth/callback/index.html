@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing Authorization...</title>
+    <script>
+        // 从前端解析 URL 中的授权码（code）
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        // 将 code 发送到后端或直接处理（需根据实际逻辑调整）
+        if (code) {
+            fetch('https://your-backend.com/exchange-code', {
+                method: 'POST',
+                body: JSON.stringify({ code }),
+                headers: { 'Content-Type': 'application/json' }
+            }).then(() => {
+                window.location.href = '/success'; // 跳转到成功页面
+            });
+        }
+    </script>
+</head>
+<body>
+    <p>Processing authorization...</p>
+</body>
+</html>
